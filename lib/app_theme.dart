@@ -16,6 +16,10 @@ class AppTheme {
         fontWeight: FontWeight.bold,
         fontSize: 15,
       ),
+      displayMedium: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+      ),
     ),
     iconTheme: const IconThemeData(
       color: Colors.black,
@@ -34,6 +38,14 @@ class AppTheme {
       backgroundColor: Colors.black,
       splashColor: Colors.white,
       foregroundColor: Colors.white,
+    ),
+    textButtonTheme: TextButtonThemeData(
+      style: TextButton.styleFrom(
+        textStyle: const TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: 15,
+        ),
+      ),
     ),
   );
 }

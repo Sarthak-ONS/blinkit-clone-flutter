@@ -32,6 +32,7 @@ flutter:
     - Assets/cimgs/
     - Assets/Categories/
     - Assets/SubCategories/
+    - Assets/Products/
   fonts:
     - family: Catamaran
       fonts:
