@@ -5,19 +5,17 @@ import '../UI/Widgets/Organisms/bottom_cart_container.dart';
 import '../UI/Widgets/Organisms/home_screen_app_bar.dart';
 import '../UI/Widgets/Organisms/home_screen_category_builder.dart';
 import '../UI/Widgets/Organisms/home_screen_floating_action_button_widget.dart';
-import '../UI/Widgets/home_screen_search_bar.dart';
+import '../UI/Widgets/Organisms/home_screen_search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  void preCachImages() {}
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 25.0),
+          padding: const EdgeInsets.only(bottom: 35.0),
           child: FloatingActionButton(
             onPressed: () {
               showModalBottomSheet(

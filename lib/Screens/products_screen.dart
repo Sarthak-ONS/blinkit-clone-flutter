@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../UI/Widgets/Organisms/bottom_cart_container.dart';
 import '../UI/Widgets/Organisms/products_screen_grid.dart';
 import '../UI/Widgets/Organisms/products_screen_sub_category_list.dart';
+import '../UI/custom_search_delegate.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key, required this.categoryName});
@@ -18,6 +19,17 @@ class ProductsScreen extends StatelessWidget {
         leadingWidth: 25,
         automaticallyImplyLeading: true,
         title: Text(categoryName),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () {
+              showSearch(context: context, delegate: MySearchDelegate());
+            },
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+        ],
       ),
       body: Stack(
         children: [

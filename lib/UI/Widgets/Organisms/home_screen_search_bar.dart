@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../app_colors.dart';
-import '../custom_sliver_delegate.dart';
+import '../../../app_colors.dart';
+import '../../custom_sliver_delegate.dart';
 
 class HomeScreenSearchBar extends StatelessWidget {
   const HomeScreenSearchBar({super.key});
