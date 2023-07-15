@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../app_colors.dart';
 
-Widget customListTile({
-  required IconData icon,
-  required String title,
-}) {
+Widget customListTile(
+    {required IconData icon, required String title, bool? isColorFul = false}) {
   return InkWell(
     splashColor: AppColors.greyWhiteColor,
     onTap: () {},
@@ -22,7 +20,7 @@ Widget customListTile({
                 backgroundColor: AppColors.greyWhiteColor,
                 child: Icon(
                   icon,
-                  color: Colors.black45,
+                  color: isColorFul! ? Colors.blueAccent : Colors.black45,
                   size: 15,
                 ),
               ),

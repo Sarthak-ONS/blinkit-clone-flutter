@@ -2,6 +2,7 @@ import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
 import 'package:ecom/Screens/products_screen.dart';
 import 'package:ecom/Screens/profile_screen.dart';
+import 'package:ecom/Screens/user_cart_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
@@ -23,6 +24,12 @@ class AppRouter {
           ),
           pageAnimationType: ScaleAnimationTransition(),
         );
+      case "/cart":
+        return PageAnimationTransition(
+          page: const CartScreen(),
+          pageAnimationType: ScaleAnimationTransition(),
+        );
+
       case '/profile':
         return PageAnimationTransition(
           page: const ProfileScreen(),

@@ -15,6 +15,12 @@ Widget buildProductsGrid() {
         ),
         delegate: SliverChildBuilderDelegate(
           (BuildContext context, int index) {
+            if (index == 6) {
+              return const SizedBox(
+                height: 50,
+              );
+            }
+
             return Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -62,7 +68,7 @@ Widget buildProductsGrid() {
               ),
             );
           },
-          childCount: 6,
+          childCount: 6 + 1,
         ),
       )
     ],

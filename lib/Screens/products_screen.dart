@@ -1,6 +1,7 @@
 import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import '../UI/Widgets/Organisms/bottom_cart_container.dart';
 import '../UI/Widgets/Organisms/products_screen_grid.dart';
 import '../UI/Widgets/Organisms/products_screen_sub_category_list.dart';
 
@@ -18,30 +19,35 @@ class ProductsScreen extends StatelessWidget {
         automaticallyImplyLeading: true,
         title: Text(categoryName),
       ),
-      body: Row(
+      body: Stack(
         children: [
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.white,
-              height: MediaQuery.of(context).size.height,
-              child: buildSubCategory(),
-            ),
+          Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: Container(
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height,
+                  child: buildSubCategory(),
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+              Expanded(
+                flex: 4,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 10),
+                  height: MediaQuery.of(context).size.height,
+                  child: buildProductsGrid(),
+                ),
+              ),
+              const SizedBox(
+                width: 10,
+              ),
+            ],
           ),
-          const SizedBox(
-            width: 10,
-          ),
-          Expanded(
-            flex: 4,
-            child: Container(
-              margin: const EdgeInsets.symmetric(vertical: 10),
-              height: MediaQuery.of(context).size.height,
-              child: buildProductsGrid(),
-            ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
+          const BottomStickyContainer()
         ],
       ),
     );

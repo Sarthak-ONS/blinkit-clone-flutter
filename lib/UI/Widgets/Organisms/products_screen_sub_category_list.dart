@@ -19,6 +19,12 @@ Widget buildSubCategory() {
   return ListView.builder(
     shrinkWrap: true,
     itemBuilder: (BuildContext context, int index) {
+      if (index == subCategory.length) {
+        return const SizedBox(
+          height: 50,
+        );
+      }
+
       return GestureDetector(
         onTap: () {
           print(subCategory[index]);
@@ -56,6 +62,6 @@ Widget buildSubCategory() {
         ),
       );
     },
-    itemCount: subCategory.length,
+    itemCount: subCategory.length + 1,
   );
 }
