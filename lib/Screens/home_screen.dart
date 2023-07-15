@@ -1,22 +1,35 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+import '../UI/Widgets/home_screen_app_bar.dart';
+import '../UI/Widgets/home_screen_search_bar.dart';
+
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: TextButton(
-            onPressed: () {
-              Navigator.of(context).pushNamed("/dada");
-            },
-            child: const Text('Button')),
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: [
+            const HomeScreenAppBar(),
+            const HomeScreenSearchBar(),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return Container(
+                    color: Colors.white,
+                    height: 100.0,
+                    child: Center(
+                      child: Text('$index', textScaleFactor: 5),
+                    ),
+                  );
+                },
+                childCount: 20,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
