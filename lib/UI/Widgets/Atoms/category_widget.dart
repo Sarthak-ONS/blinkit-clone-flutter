@@ -29,31 +29,40 @@ class CategoryWidget extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: const Color(0xffEEF5FF),
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 0),
-          child: Image.asset(
-            'Assets/Categories/${index + 1}.png',
-            fit: BoxFit.cover,
-          ),
+    return GestureDetector(
+      onTap: () => {
+        Navigator.pushNamed(
+          context,
+          '/products',
+          arguments: categoriesTitles[index],
         ),
-        Text(
-          categoriesTitles[index],
-          textAlign: TextAlign.center,
-          maxLines: 1,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            textBaseline: TextBaseline.alphabetic,
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: const Color(0xffEEF5FF),
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 0),
+            child: Image.asset(
+              'Assets/Categories/${index + 1}.png',
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
-      ],
+          Text(
+            categoriesTitles[index],
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.bold,
+              textBaseline: TextBaseline.alphabetic,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
