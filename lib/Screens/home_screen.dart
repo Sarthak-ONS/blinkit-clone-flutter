@@ -16,9 +16,75 @@ class HomeScreen extends StatelessWidget {
       child: Container(
         color: Colors.white,
         padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: const Scaffold(
+        child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                useSafeArea: true,
+                backgroundColor: Colors.transparent,
+                enableDrag: true,
+                showDragHandle: true,
+                isScrollControlled: true,
+                elevation: 10,
+                builder: (BuildContext context) {
+                  return Stack(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 5, vertical: 5),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        height: double.infinity,
+                        child: const CustomScrollView(
+                          physics: BouncingScrollPhysics(),
+                          slivers: [
+                            SliverToBoxAdapter(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  'Shop By Categories',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            HomeScreenCateogoryWidget(),
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: FloatingActionButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            backgroundColor: Colors.black87,
+                            child: const Icon(
+                              Icons.close,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+              );
+            },
+            child: const Icon(
+              Icons.category_outlined,
+              color: Colors.white,
+            ),
+          ),
           primary: true,
-          body: CustomScrollView(
+          body: const CustomScrollView(
             physics: BouncingScrollPhysics(),
             slivers: [
               HomeScreenAppBar(),
@@ -30,16 +96,17 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SliverToBoxAdapter(
-                  child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  'Categories',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 35,
+                child: Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    'Categories',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 35,
+                    ),
                   ),
                 ),
-              )),
+              ),
               HomeScreenCateogoryWidget()
             ],
           ),

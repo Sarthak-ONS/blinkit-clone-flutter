@@ -30,5 +30,10 @@ class AppTheme {
       iconTheme: IconThemeData(color: Colors.black),
       elevation: 2,
     ),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(
+      backgroundColor: Colors.black,
+      splashColor: Colors.white,
+      foregroundColor: Colors.white,
+    ),
   );
 }
