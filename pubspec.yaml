@@ -1,19 +1,27 @@
 name: ecom
 description: A new Flutter project.
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
-  sdk: '>=3.0.5 <4.0.0'
+  sdk: ">=3.0.5 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
+  flutter_native_splash:
+
+flutter_native_splash:
+  image: Assets/splash2.png
+  color: "#FFE141"
+  ios: false
+  web: false
 
 flutter:
   uses-material-design: true
