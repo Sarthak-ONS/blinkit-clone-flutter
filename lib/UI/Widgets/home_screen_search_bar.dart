@@ -22,6 +22,8 @@ class HomeScreenSearchBar extends StatelessWidget {
   }
 
   Widget _buildSearchField(BuildContext context) {
+    FocusNode focusNode = FocusNode();
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
@@ -37,6 +39,7 @@ class HomeScreenSearchBar extends StatelessWidget {
         ],
       ),
       child: TextField(
+        focusNode: focusNode,
         decoration: InputDecoration(
           hintText: 'Search',
           filled: true,

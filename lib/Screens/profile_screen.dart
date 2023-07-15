@@ -40,7 +40,7 @@ class ProfileScreen extends StatelessWidget {
             ),
             Container(
               decoration: const BoxDecoration(
-                color: Color.fromARGB(255, 186, 224, 255),
+                color: Color.fromARGB(255, 216, 237, 255),
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
@@ -71,7 +71,7 @@ class ProfileScreen extends StatelessWidget {
               height: 10,
             ),
             const Text(
-              'YOUR INFORMATION',
+              'OTHERS',
               style: TextStyle(
                 color: Colors.grey,
                 fontWeight: FontWeight.w400,
@@ -111,37 +111,47 @@ class ProfileScreen extends StatelessWidget {
     required IconData icon,
     required String title,
   }) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-      margin: const EdgeInsets.symmetric(vertical: 1),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              CircleAvatar(
-                radius: 18,
-                backgroundColor: AppColors.greyWhiteColor,
-                child: Icon(
-                  icon,
-                  color: Colors.black45,
-                  size: 15,
+    return InkWell(
+      splashColor: AppColors.greyWhiteColor,
+      onTap: () {},
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+        margin: const EdgeInsets.symmetric(vertical: 1),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                CircleAvatar(
+                  radius: 18,
+                  backgroundColor: AppColors.greyWhiteColor,
+                  child: Icon(
+                    icon,
+                    color: Colors.black45,
+                    size: 15,
+                  ),
                 ),
-              ),
-              const SizedBox(
-                width: 15,
-              ),
-              Text(title),
-            ],
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_forward_ios,
-              size: 15,
+                const SizedBox(
+                  width: 15,
+                ),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 17,
+                  ),
+                ),
+              ],
             ),
-          ),
-        ],
+            IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.arrow_forward_ios,
+                size: 15,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
