@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0
+  page_animation_transition: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +26,19 @@ flutter_native_splash:
 
 flutter:
   uses-material-design: true
+  fonts:
+    - family: Catamaran
+      fonts:
+        - asset: Assets/Fonts/Catamaran-Regular.ttf
+        - asset: Assets/Fonts/Catamaran-Bold.ttf
+          weight: 700
+        - asset: Assets/Fonts/Catamaran-ExtraBold.ttf
+          weight: 800
+        - asset: Assets/Fonts/Catamaran-Light.ttf
+          weight: 300
+        - asset: Assets/Fonts/Catamaran-Medium.ttf
+          weight: 500
+        - asset: Assets/Fonts/Catamaran-Thin.ttf
+          weight: 100
+        - asset: Assets/Fonts/Catamaran-SemiBold.ttf
+          weight: 600
