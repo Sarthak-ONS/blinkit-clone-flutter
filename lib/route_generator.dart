@@ -1,8 +1,11 @@
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
+import 'package:ecom/Screens/order_summary_screen.dart';
 import 'package:ecom/Screens/products_screen.dart';
 import 'package:ecom/Screens/profile_screen.dart';
+import 'package:ecom/Screens/user_address_screen.dart';
 import 'package:ecom/Screens/user_cart_screen.dart';
+import 'package:ecom/Screens/user_orders_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
@@ -29,10 +32,25 @@ class AppRouter {
           page: const CartScreen(),
           pageAnimationType: ScaleAnimationTransition(),
         );
+      case "/orders":
+        return PageAnimationTransition(
+          page: const OrdersScreen(),
+          pageAnimationType: ScaleAnimationTransition(),
+        );
+      case "/order":
+        return PageAnimationTransition(
+          page: const OrderSummaryScreen(),
+          pageAnimationType: ScaleAnimationTransition(),
+        );
 
       case '/profile':
         return PageAnimationTransition(
           page: const ProfileScreen(),
+          pageAnimationType: RightToLeftFadedTransition(),
+        );
+      case '/user/address':
+        return PageAnimationTransition(
+          page: const UserAddressScreen(),
           pageAnimationType: RightToLeftFadedTransition(),
         );
       default:

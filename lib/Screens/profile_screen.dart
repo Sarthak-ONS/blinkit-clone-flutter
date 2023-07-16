@@ -65,9 +65,18 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             customListTile(
-                icon: Icons.inventory_2_outlined, title: 'Your Orders'),
+              icon: Icons.inventory_2_outlined,
+              title: 'Your Orders',
+              callback: () {
+                Navigator.of(context).pushNamed('/orders');
+              },
+            ),
             customListTile(
-                icon: Icons.inventory_2_outlined, title: 'Address Book'),
+                icon: Icons.inventory_2_outlined,
+                title: 'Address Book',
+                callback: () {
+                  Navigator.of(context).pushNamed('/user/address');
+                }),
             const SizedBox(
               height: 10,
             ),

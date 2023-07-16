@@ -3,10 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../app_colors.dart';
 
 Widget customListTile(
-    {required IconData icon, required String title, bool? isColorFul = false}) {
+    {required IconData icon,
+    required String title,
+    bool? isColorFul = false,
+    Function? callback}) {
   return InkWell(
     splashColor: AppColors.greyWhiteColor,
-    onTap: () {},
+    onTap: () {
+      callback!();
+    },
     child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
       margin: const EdgeInsets.symmetric(vertical: 1),
