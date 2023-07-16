@@ -18,6 +18,7 @@ const subCategory = [
 Widget buildSubCategory() {
   return ListView.builder(
     shrinkWrap: true,
+    physics: const BouncingScrollPhysics(),
     itemBuilder: (BuildContext context, int index) {
       if (index == subCategory.length) {
         return const SizedBox(

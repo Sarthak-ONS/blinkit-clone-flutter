@@ -20,12 +20,12 @@ class CartScreenAddressContainer extends StatelessWidget {
       ),
       width: MediaQuery.of(context).size.width,
       height: 70,
-      child: const Center(
+      child: Center(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
+            const Row(
               children: [
                 Icon(
                   Icons.home_filled,
@@ -50,10 +50,15 @@ class CartScreenAddressContainer extends StatelessWidget {
                 )
               ],
             ),
-            Text(
-              "Change",
-              style: TextStyle(
-                color: AppColors.primaryGreenColor,
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed('/user/address');
+              },
+              child: const Text(
+                "Change",
+                style: TextStyle(
+                  color: AppColors.primaryGreenColor,
+                ),
               ),
             )
           ],

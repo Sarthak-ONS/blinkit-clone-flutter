@@ -240,14 +240,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  page_animation_transition:
-    dependency: "direct main"
-    description:
-      name: page_animation_transition
-      sha256: b03dc222c43a1e781c9e828dbc90a6303a3b886fdf0e8d3ee29729aabca9f3eb
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0"
   path:
     dependency: transitive
     description:

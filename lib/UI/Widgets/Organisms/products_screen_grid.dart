@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../Atoms/add_to_cart_button.dart';
+import '../Atoms/card_product.dart';
 
 Widget buildProductsGrid() {
   return CustomScrollView(
     shrinkWrap: true,
+    physics: const BouncingScrollPhysics(),
     slivers: [
       SliverGrid(
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -21,51 +22,8 @@ Widget buildProductsGrid() {
               );
             }
 
-            return Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset("Assets/Products/${index + 1}.png"),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          "Amul Milk",
-                          maxLines: 1,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15,
-                          ),
-                        ),
-                        Text(
-                          "300gms",
-                          maxLines: 1,
-                          style: Theme.of(context).textTheme.displaySmall,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text(
-                              "₹ 100",
-                              maxLines: 1,
-                              style: TextStyle(
-                                fontSize: 14,
-                              ),
-                            ),
-                            buildAddToCartButton()
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),
+            return ProductCard(
+              index: index,
             );
           },
           childCount: 6 + 1,

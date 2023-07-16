@@ -1,10 +1,11 @@
 import 'package:ecom/UI/Widgets/Organisms/home_screen_carousel.dart';
 import 'package:flutter/material.dart';
 
+import '../UI/Widgets/Atoms/home_screen_floating_button.dart';
 import '../UI/Widgets/Organisms/bottom_cart_container.dart';
+import '../UI/Widgets/Organisms/category_with_products.dart';
 import '../UI/Widgets/Organisms/home_screen_app_bar.dart';
 import '../UI/Widgets/Organisms/home_screen_category_builder.dart';
-import '../UI/Widgets/Organisms/home_screen_floating_action_button_widget.dart';
 import '../UI/Widgets/Organisms/home_screen_search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -12,33 +13,11 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return const SafeArea(
       child: Scaffold(
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(bottom: 35.0),
-          child: FloatingActionButton(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                useSafeArea: true,
-                backgroundColor: Colors.transparent,
-                enableDrag: true,
-                showDragHandle: true,
-                isScrollControlled: true,
-                elevation: 10,
-                builder: (BuildContext context) {
-                  return const FloatingActionButtonWidget();
-                },
-              );
-            },
-            child: const Icon(
-              Icons.category_outlined,
-              color: Colors.white,
-            ),
-          ),
-        ),
+        floatingActionButton: HomeScreenFloatingNavigationBar(),
         primary: true,
-        body: const Stack(
+        body: Stack(
           children: [
             CustomScrollView(
               physics: BouncingScrollPhysics(),
@@ -64,9 +43,13 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 HomeScreenCateogoryWidget(),
+                CatgorywithProducts(),
+                CatgorywithProducts(
+                  title: "Personal Care",
+                ),
                 SliverToBoxAdapter(
                   child: SizedBox(
-                    height: 40,
+                    height: 90,
                   ),
                 ),
               ],

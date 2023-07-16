@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../../app_colors.dart';
 
@@ -6,7 +7,12 @@ Widget buildAddToCartButton() {
   return InkWell(
     splashColor: AppColors.primaryGreenColor,
     onTap: () {
-      print("ADD TO CART");
+      Fluttertoast.showToast(
+        msg: 'Product Added To Cart',
+        backgroundColor: Colors.white,
+        textColor: Colors.black,
+        gravity: ToastGravity.BOTTOM,
+      );
     },
     child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2),

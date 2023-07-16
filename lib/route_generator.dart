@@ -11,10 +11,6 @@ import 'package:ecom/Screens/user_cart_screen.dart';
 import 'package:ecom/Screens/user_orders_screen.dart';
 import 'package:flutter/material.dart';
 
-import 'package:page_animation_transition/animations/right_to_left_faded_transition.dart';
-import 'package:page_animation_transition/animations/scale_animation_transition.dart';
-import 'package:page_animation_transition/page_animation_transition.dart';
-
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -23,52 +19,49 @@ class AppRouter {
           builder: (_) => const LoginScreen(),
         );
       case '/home':
-        return MaterialPageRoute(
+        return ScalePageRoute(
           builder: (_) => const HomeScreen(),
         );
       case '/products':
         print(settings.arguments);
-        return PageAnimationTransition(
-          page: ProductsScreen(
+        return ScalePageRoute(
+          builder: (_) => ProductsScreen(
             categoryName: settings.arguments.toString(),
           ),
-          pageAnimationType: ScaleAnimationTransition(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       case "/cart":
-        return PageAnimationTransition(
-          page: const CartScreen(),
-          pageAnimationType: ScaleAnimationTransition(),
+        return ScalePageRoute(
+          builder: (_) => const CartScreen(),
         );
       case "/orders":
-        return PageAnimationTransition(
-          page: const OrdersScreen(),
-          pageAnimationType: ScaleAnimationTransition(),
+        return ScalePageRoute(
+          builder: (_) => const OrdersScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       case "/order":
-        return PageAnimationTransition(
-          page: const OrderSummaryScreen(),
-          pageAnimationType: ScaleAnimationTransition(),
+        return ScalePageRoute(
+          builder: (_) => const OrderSummaryScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       case "/order/confirm":
-        return PageAnimationTransition(
-          page: const OrderConfirmationScreen(),
-          pageAnimationType: ScaleAnimationTransition(),
+        return ScalePageRoute(
+          builder: (_) => const OrderConfirmationScreen(),
         );
 
       case '/profile':
-        return PageAnimationTransition(
-          page: const ProfileScreen(),
-          pageAnimationType: RightToLeftFadedTransition(),
+        return ScalePageRoute(
+          builder: (_) => const ProfileScreen(),
         );
       case '/user/address':
-        return PageAnimationTransition(
-          page: const UserAddressScreen(),
-          pageAnimationType: RightToLeftFadedTransition(),
+        return ScalePageRoute(
+          builder: (_) => const UserAddressScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       case '/app/about':
-        return PageAnimationTransition(
-          page: const AppAboutScreen(),
-          pageAnimationType: RightToLeftFadedTransition(),
+        return ScalePageRoute(
+          builder: (_) => const AppAboutScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       default:
         return MaterialPageRoute(
@@ -76,4 +69,63 @@ class AppRouter {
         );
     }
   }
+}
+
+enum AnimationDirection {
+  leftToRight,
+  rightToLeft,
+  center,
+}
+
+class ScalePageRoute extends PageRouteBuilder {
+  final WidgetBuilder builder;
+  final AnimationDirection animationDirection;
+
+  ScalePageRoute({
+    required this.builder,
+    this.animationDirection = AnimationDirection.center,
+  }) : super(
+          transitionDuration: const Duration(milliseconds: 500),
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return builder(context);
+          },
+          transitionsBuilder: (BuildContext context,
+              Animation<double> animation,
+              Animation<double> secondaryAnimation,
+              Widget child) {
+            switch (animationDirection) {
+              case AnimationDirection.leftToRight:
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(-1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                );
+              case AnimationDirection.rightToLeft:
+                return SlideTransition(
+                  position: Tween<Offset>(
+                    begin: const Offset(1.0, 0.0),
+                    end: Offset.zero,
+                  ).animate(animation),
+                  child: child,
+                );
+              case AnimationDirection.center:
+              default:
+                return ScaleTransition(
+                  scale: Tween<double>(
+                    begin: 0.0,
+                    end: 1.0,
+                  ).animate(
+                    CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.fastOutSlowIn,
+                    ),
+                  ),
+                  child: child,
+                );
+            }
+          },
+        );
 }
