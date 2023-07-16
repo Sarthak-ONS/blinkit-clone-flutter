@@ -1,6 +1,7 @@
 import 'package:ecom/Screens/app_about_screen.dart';
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
+import 'package:ecom/Screens/login_screen.dart';
 import 'package:ecom/Screens/order_summary_screen.dart';
 import 'package:ecom/Screens/products_screen.dart';
 import 'package:ecom/Screens/profile_screen.dart';
@@ -17,6 +18,10 @@ class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
+        return MaterialPageRoute(
+          builder: (_) => const LoginScreen(),
+        );
+      case '/home':
         return MaterialPageRoute(
           builder: (_) => const HomeScreen(),
         );
