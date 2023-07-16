@@ -84,12 +84,22 @@ class _LoginScreenState extends State<LoginScreen>
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.redAccentColor,
                   foregroundColor: Colors.white,
+                  shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0))),
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 100,
-                    vertical: 12,
+                    horizontal: 150,
+                    vertical: 16,
                   ),
                 ),
                 child: const Text('Login'),
+              ),
+              const Divider(),
+              const Text(
+                'By continuing, you agree to our terms of service and privacy policy',
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.grey,
+                ),
               )
             ],
           ),

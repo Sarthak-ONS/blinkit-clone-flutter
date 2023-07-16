@@ -1,10 +1,11 @@
-import 'package:ecom/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../UI/Widgets/Atoms/list_tile.dart';
 
 import 'package:share_plus/share_plus.dart';
+
+import '../UI/Widgets/Organisms/cupertino_logout_dialog.dart';
 
 const svgIcons = [
   "https://img.icons8.com/ios/50/wallet--v1.png",
@@ -115,48 +116,7 @@ class ProfileScreen extends StatelessWidget {
               callback: () {
                 showCupertinoDialog(
                   context: context,
-                  builder: ((context1) => CupertinoAlertDialog(
-                        title: const Text('Logout'),
-                        content: const Column(
-                          children: [
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text(
-                              'Are you sure you want to logout?',
-                              style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        actions: [
-                          CupertinoDialogAction(
-                            onPressed: () {
-                              Navigator.of(context1).pop();
-                            },
-                            child: const Text(
-                              'Cancel',
-                              style: TextStyle(
-                                color: AppColors.primaryGreenColor,
-                              ),
-                            ),
-                          ),
-                          CupertinoDialogAction(
-                            onPressed: () {
-                              Navigator.of(context).pushNamedAndRemoveUntil(
-                                  '/', (Route<dynamic> route) => false);
-                            },
-                            child: const Text(
-                              'Logout',
-                              style: TextStyle(
-                                color: AppColors.primaryGreenColor,
-                              ),
-                            ),
-                          ),
-                        ],
-                      )),
+                  builder: ((context1) => const CupertinoLogoutDialog()),
                 );
               },
             ),
@@ -187,5 +147,3 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-
-// TODO: Change the Icons From Network to Assets 

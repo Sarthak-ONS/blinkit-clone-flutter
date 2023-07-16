@@ -1,3 +1,4 @@
+import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../Atoms/card_product_order_summary.dart';
@@ -21,6 +22,18 @@ class OrderSummaryProductsDetails extends StatelessWidget {
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 22,
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).pushNamed("/order/invoice");
+            },
+            child: const Text(
+              'Download Invoice',
+              style: TextStyle(
+                color: AppColors.primaryGreenColor,
+                fontSize: 16,
+              ),
             ),
           ),
           const Text(

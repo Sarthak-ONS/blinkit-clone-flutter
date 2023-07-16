@@ -4,6 +4,7 @@ import 'package:ecom/Screens/home_screen.dart';
 import 'package:ecom/Screens/login_screen.dart';
 import 'package:ecom/Screens/order_confirmation_screen.dart';
 import 'package:ecom/Screens/order_summary_screen.dart';
+import 'package:ecom/Screens/pdf_view_screen.dart';
 import 'package:ecom/Screens/products_screen.dart';
 import 'package:ecom/Screens/profile_screen.dart';
 import 'package:ecom/Screens/user_address_screen.dart';
@@ -42,6 +43,11 @@ class AppRouter {
       case "/order":
         return ScalePageRoute(
           builder: (_) => const OrderSummaryScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
+        );
+      case "/order/invoice":
+        return ScalePageRoute(
+          builder: (_) => const ViewOrderInvoiceScreen(),
           animationDirection: AnimationDirection.rightToLeft,
         );
       case "/order/confirm":
@@ -85,7 +91,7 @@ class ScalePageRoute extends PageRouteBuilder {
     required this.builder,
     this.animationDirection = AnimationDirection.center,
   }) : super(
-          transitionDuration: const Duration(milliseconds: 500),
+          transitionDuration: const Duration(milliseconds: 300),
           pageBuilder: (BuildContext context, Animation<double> animation,
               Animation<double> secondaryAnimation) {
             return builder(context);
