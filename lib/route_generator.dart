@@ -1,3 +1,4 @@
+import 'package:ecom/Screens/app_about_screen.dart';
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
 import 'package:ecom/Screens/order_summary_screen.dart';
@@ -51,6 +52,11 @@ class AppRouter {
       case '/user/address':
         return PageAnimationTransition(
           page: const UserAddressScreen(),
+          pageAnimationType: RightToLeftFadedTransition(),
+        );
+      case '/app/about':
+        return PageAnimationTransition(
+          page: const AppAboutScreen(),
           pageAnimationType: RightToLeftFadedTransition(),
         );
       default:

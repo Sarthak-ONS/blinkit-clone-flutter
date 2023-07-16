@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../UI/Widgets/Atoms/list_tile.dart';
 
+import 'package:share_plus/share_plus.dart';
+
 const svgIcons = [
   "https://img.icons8.com/ios/50/wallet--v1.png",
   "https://img.icons8.com/ios/50/filled-chat.png",
@@ -87,9 +89,24 @@ class ProfileScreen extends StatelessWidget {
                 fontWeight: FontWeight.w400,
               ),
             ),
-            customListTile(icon: Icons.share, title: 'Share the app'),
-            customListTile(icon: Icons.info_outline, title: 'About Us'),
-            customListTile(icon: Icons.logout, title: 'Log out'),
+            customListTile(
+                icon: Icons.share,
+                title: 'Share the app',
+                callback: () {
+                  Share.share(
+                    'Check Out My Portfolio https://sarthakag.dev',
+                    subject: "Grocery App",
+                  );
+                }),
+            customListTile(
+              icon: Icons.info_outline,
+              title: 'About Us',
+              callback: () {
+                Navigator.of(context).pushNamed('/app/about');
+              },
+            ),
+            customListTile(
+                icon: Icons.logout, title: 'Log out', callback: () {}),
           ],
         ),
       ),
