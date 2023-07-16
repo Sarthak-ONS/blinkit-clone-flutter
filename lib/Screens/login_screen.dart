@@ -30,66 +30,69 @@ class _LoginScreenState extends State<LoginScreen>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Column(
-          children: [
-            Lottie.asset(
-              'Assets/auth.json',
-              controller: _controller,
-              onLoaded: (composition) {
-                // Configure the AnimationController with the duration of the
-                // Lottie file and start the animation.
-                _controller
-                  ..duration = composition.duration
-                  ..forward();
-                _controller.repeat();
-                print("Animation Loaded");
-              },
-              repeat: true,
-              frameRate: FrameRate.max,
-            ),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10.0),
-              child: Image.asset(
-                "Assets/splash2.png",
-                height: 50,
-                fit: BoxFit.cover,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset(
+                'Assets/auth.json',
+                controller: _controller,
+                onLoaded: (composition) {
+                  // Configure the AnimationController with the duration of the
+                  // Lottie file and start the animation.
+                  _controller
+                    ..duration = composition.duration
+                    ..forward();
+                  _controller.repeat();
+                  print("Animation Loaded");
+                },
+                repeat: true,
+                frameRate: FrameRate.max,
               ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'Welcome to the Blinkit',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const Text(
-              'Bareilly\'s last minute app',
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w300,
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed('/home');
-              },
-              style: TextButton.styleFrom(
-                backgroundColor: AppColors.redAccentColor,
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 100,
-                  vertical: 12,
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10.0),
+                child: Image.asset(
+                  "Assets/splash2.png",
+                  height: 50,
+                  fit: BoxFit.cover,
                 ),
               ),
-              child: const Text('Login'),
-            )
-          ],
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                'Welcome to the Blinkit',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Text(
+                'Bareilly\'s last minute app',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w300,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/home');
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.redAccentColor,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 100,
+                    vertical: 12,
+                  ),
+                ),
+                child: const Text('Login'),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:ecom/Screens/app_about_screen.dart';
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
 import 'package:ecom/Screens/login_screen.dart';
+import 'package:ecom/Screens/order_confirmation_screen.dart';
 import 'package:ecom/Screens/order_summary_screen.dart';
 import 'package:ecom/Screens/products_screen.dart';
 import 'package:ecom/Screens/profile_screen.dart';
@@ -46,6 +47,11 @@ class AppRouter {
       case "/order":
         return PageAnimationTransition(
           page: const OrderSummaryScreen(),
+          pageAnimationType: ScaleAnimationTransition(),
+        );
+      case "/order/confirm":
+        return PageAnimationTransition(
+          page: const OrderConfirmationScreen(),
           pageAnimationType: ScaleAnimationTransition(),
         );
 

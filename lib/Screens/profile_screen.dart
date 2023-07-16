@@ -1,3 +1,5 @@
+import 'package:ecom/app_colors.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../UI/Widgets/Atoms/list_tile.dart';
@@ -74,11 +76,12 @@ class ProfileScreen extends StatelessWidget {
               },
             ),
             customListTile(
-                icon: Icons.inventory_2_outlined,
-                title: 'Address Book',
-                callback: () {
-                  Navigator.of(context).pushNamed('/user/address');
-                }),
+              icon: Icons.inventory_2_outlined,
+              title: 'Address Book',
+              callback: () {
+                Navigator.of(context).pushNamed('/user/address');
+              },
+            ),
             const SizedBox(
               height: 10,
             ),
@@ -90,14 +93,15 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             customListTile(
-                icon: Icons.share,
-                title: 'Share the app',
-                callback: () {
-                  Share.share(
-                    'Check Out My Portfolio https://sarthakag.dev',
-                    subject: "Grocery App",
-                  );
-                }),
+              icon: Icons.share,
+              title: 'Share the app',
+              callback: () {
+                Share.share(
+                  'Check Out My Portfolio https://sarthakag.dev',
+                  subject: "Grocery App",
+                );
+              },
+            ),
             customListTile(
               icon: Icons.info_outline,
               title: 'About Us',
@@ -106,7 +110,56 @@ class ProfileScreen extends StatelessWidget {
               },
             ),
             customListTile(
-                icon: Icons.logout, title: 'Log out', callback: () {}),
+              icon: Icons.logout,
+              title: 'Log out',
+              callback: () {
+                showCupertinoDialog(
+                  context: context,
+                  builder: ((context1) => CupertinoAlertDialog(
+                        title: const Text('Logout'),
+                        content: const Column(
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              'Are you sure you want to logout?',
+                              style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        actions: [
+                          CupertinoDialogAction(
+                            onPressed: () {
+                              Navigator.of(context1).pop();
+                            },
+                            child: const Text(
+                              'Cancel',
+                              style: TextStyle(
+                                color: AppColors.primaryGreenColor,
+                              ),
+                            ),
+                          ),
+                          CupertinoDialogAction(
+                            onPressed: () {
+                              Navigator.of(context).pushNamedAndRemoveUntil(
+                                  '/', (Route<dynamic> route) => false);
+                            },
+                            child: const Text(
+                              'Logout',
+                              style: TextStyle(
+                                color: AppColors.primaryGreenColor,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )),
+                );
+              },
+            ),
           ],
         ),
       ),

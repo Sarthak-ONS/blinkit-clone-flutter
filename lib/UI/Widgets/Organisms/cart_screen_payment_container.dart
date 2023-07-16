@@ -43,7 +43,9 @@ class CartScreenPaymentContainer extends StatelessWidget {
             ],
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed('/order/confirm');
+            },
             style: TextButton.styleFrom(
               backgroundColor: AppColors.primaryGreenColor,
               padding: const EdgeInsets.symmetric(
