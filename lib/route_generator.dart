@@ -1,7 +1,8 @@
+import 'package:ecom/Screens/Auth/otp_verification_screen.dart';
 import 'package:ecom/Screens/app_about_screen.dart';
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
-import 'package:ecom/Screens/login_screen.dart';
+import 'package:ecom/Screens/Auth/login_screen.dart';
 import 'package:ecom/Screens/order_confirmation_screen.dart';
 import 'package:ecom/Screens/order_summary_screen.dart';
 import 'package:ecom/Screens/pdf_view_screen.dart';
@@ -16,8 +17,13 @@ class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/':
-        return MaterialPageRoute(
+        return ScalePageRoute(
           builder: (_) => const LoginScreen(),
+        );
+      case '/otp/verify':
+        return ScalePageRoute(
+          builder: (_) => OTPVerificationScreen(),
+          animationDirection: AnimationDirection.rightToLeft,
         );
       case '/home':
         return ScalePageRoute(
