@@ -21,5 +21,10 @@ Widget customTextButton(
         ),
         padding: padding,
       ),
-      child: const Text('Continue'),
+      child: const Text(
+        'Continue',
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );

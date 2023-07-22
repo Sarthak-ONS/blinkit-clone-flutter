@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
+    print(settings.arguments);
     switch (settings.name) {
       case '/':
         return ScalePageRoute(
@@ -22,7 +23,9 @@ class AppRouter {
         );
       case '/otp/verify':
         return ScalePageRoute(
-          builder: (_) => OTPVerificationScreen(),
+          builder: (_) => OTPVerificationScreen(
+            data: settings.arguments,
+          ),
           animationDirection: AnimationDirection.rightToLeft,
         );
       case '/home':

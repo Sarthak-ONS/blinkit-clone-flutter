@@ -5,7 +5,9 @@ import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
-  const OTPVerificationScreen({super.key});
+  const OTPVerificationScreen({super.key, this.data});
+
+  final dynamic data;
 
   @override
   State<OTPVerificationScreen> createState() => _OTPVerificationScreenState();
@@ -20,6 +22,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   void initState() {
     super.initState();
     _startTimer();
+    print(widget.data);
   }
 
   void _startTimer() {

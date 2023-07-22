@@ -1,15 +1,52 @@
+import 'package:ecom/Services/Helpers/request_helper.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
+import '../../../Services/Exceptions/api_exception.dart';
 import '../../../app_colors.dart';
 import '../Atoms/custom_button.dart';
 import '../Atoms/custom_text_field.dart';
 
-class LoginwithMobileWidget extends StatelessWidget {
-  LoginwithMobileWidget({
+class LoginwithMobileWidget extends StatefulWidget {
+  const LoginwithMobileWidget({
     super.key,
   });
 
-  final TextEditingController _textEditingController = TextEditingController();
+  @override
+  State<LoginwithMobileWidget> createState() => _LoginwithMobileWidgetState();
+}
+
+class _LoginwithMobileWidgetState extends State<LoginwithMobileWidget> {
+  late TextEditingController _textEditingController;
+
+  @override
+  void initState() {
+    super.initState();
+    _textEditingController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _textEditingController.dispose();
+  }
+
+  Future _authorizeWithPhoneNumber(context) async {
+    FocusScope.of(context).unfocus();
+    if (_textEditingController.text.isEmpty ||
+        _textEditingController.text.length != 10) return;
+    try {
+      final data = await ApiService().postFormData(
+        '/v2/auth/otp/send',
+        {
+          "phoneNumber": _textEditingController.text,
+        },
+      );
+      Navigator.of(context).popAndPushNamed('/otp/verify', arguments: data);
+    } on ApiException catch (e) {
+      Fluttertoast.showToast(msg: e.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +82,25 @@ class LoginwithMobileWidget extends StatelessWidget {
               customTextField(
                 isPhoneNumberField: true,
                 textEditingController: _textEditingController,
+                prefix: "+91  ",
+                validator: (p0) {
+                  print(p0);
+                  if (p0 == null || p0.isEmpty) {
+                    return "Please enter a valid phone number";
+                  }
+                  if (p0.length != 10) {
+                    return "Please enter a valid phone number";
+                  }
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 10,
               ),
               customTextButton(
                 context,
-                callback: () {
-                  Navigator.of(context).pushNamed('/otp/verify');
+                callback: () async {
+                  _authorizeWithPhoneNumber(context);
                 },
                 title: "Continue",
                 padding: const EdgeInsets.symmetric(

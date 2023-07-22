@@ -11,10 +11,12 @@ Widget customTextField({
   bool? isPhoneNumberField = false,
   String? prefix = "",
   int? maxLength = 10,
+  String? Function(String?)? validator,
 }) =>
     TextFormField(
       controller: textEditingController,
       maxLength: maxLength,
+      validator: validator,
       autofocus: true,
       cursorColor: Colors.grey,
       keyboardType:

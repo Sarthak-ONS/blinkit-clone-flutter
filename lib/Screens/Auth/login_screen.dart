@@ -32,10 +32,8 @@ class _LoginScreenState extends State<LoginScreen>
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        body: Container(
-          padding: MediaQuery.of(context).viewInsets,
+        body: Center(
           child: SingleChildScrollView(
-            padding: MediaQuery.of(context).viewInsets,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -44,8 +42,6 @@ class _LoginScreenState extends State<LoginScreen>
                   'Assets/auth.json',
                   controller: _controller,
                   onLoaded: (composition) {
-                    // Configure the AnimationController with the duration of the
-                    // Lottie file and start the animation.
                     _controller
                       ..duration = composition.duration
                       ..forward();
