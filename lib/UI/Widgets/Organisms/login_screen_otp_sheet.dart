@@ -42,7 +42,11 @@ class _LoginwithMobileWidgetState extends State<LoginwithMobileWidget> {
           "phoneNumber": _textEditingController.text,
         },
       );
-      Navigator.of(context).popAndPushNamed('/otp/verify', arguments: data);
+      data['phoneNumber'] = _textEditingController.text;
+      Navigator.of(context).popAndPushNamed(
+        '/otp/verify',
+        arguments: data as Map,
+      );
     } on ApiException catch (e) {
       Fluttertoast.showToast(msg: e.message);
     }

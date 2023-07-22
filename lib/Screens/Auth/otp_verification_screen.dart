@@ -3,6 +3,10 @@ import 'dart:async';
 import 'package:ecom/UI/Widgets/Atoms/custom_text_field.dart';
 import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import '../../Services/Exceptions/api_exception.dart';
+import '../../Services/Helpers/request_helper.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
   const OTPVerificationScreen({super.key, this.data});
@@ -14,15 +18,39 @@ class OTPVerificationScreen extends StatefulWidget {
 }
 
 class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
-  final TextEditingController _otpController = TextEditingController();
+  late TextEditingController _otpController;
   int _secondsRemaining = 30;
   late Timer _timer;
 
   @override
   void initState() {
     super.initState();
+    _otpController = TextEditingController();
     _startTimer();
+    print("///////////////");
     print(widget.data);
+  }
+
+  Future _verifyOTP(context, value) async {
+    if (_otpController.text.isEmpty || _otpController.text.length != 6) return;
+    try {
+      final data = await ApiService().postFormData(
+        '/v2/auth/otp/verify',
+        {
+          "phoneNumber": widget.data['phoneNumber'],
+          "otp": value,
+          "verificationId": widget.data['verificationId'],
+        },
+      );
+      if (data['token'] != null) {
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          '/home',
+          (route) => false,
+        );
+      }
+    } on ApiException catch (e) {
+      Fluttertoast.showToast(msg: e.message);
+    }
   }
 
   void _startTimer() {
@@ -55,6 +83,7 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
   @override
   void dispose() {
     _timer.cancel();
+    _otpController.dispose();
     super.dispose();
   }
 
@@ -74,9 +103,9 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text("We've sent a verification code to "),
-              const Text(
-                "+91 1234567890",
-                style: TextStyle(
+              Text(
+                "+91 ${widget.data['phoneNumber']}",
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -92,6 +121,11 @@ class _OTPVerificationScreenState extends State<OTPVerificationScreen> {
                 isPhoneNumberField: true,
                 maxLength: 6,
                 textEditingController: _otpController,
+                onFieldSubmitted: (value) {
+                  print("dnanad");
+                  _verifyOTP(context, value);
+                  return null;
+                },
               ),
               const SizedBox(
                 height: 10,

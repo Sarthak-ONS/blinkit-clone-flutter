@@ -12,8 +12,10 @@ Widget customTextField({
   String? prefix = "",
   int? maxLength = 10,
   String? Function(String?)? validator,
+  String? Function(String?)? onFieldSubmitted,
 }) =>
     TextFormField(
+      onFieldSubmitted: onFieldSubmitted,
       controller: textEditingController,
       maxLength: maxLength,
       validator: validator,

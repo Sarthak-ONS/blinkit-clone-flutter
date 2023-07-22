@@ -33,9 +33,8 @@ class ApiService {
 
       return parsedResponse;
     } on DioException catch (e) {
-      _handleException(e);
+      return _handleException(e);
     }
-    return ApiException(400, "Please try again later!");
   }
 
   Map<String, dynamic> _parseResponse(Response response) {
@@ -73,7 +72,7 @@ class ApiService {
         stackTrace: e.stackTrace,
       );
     } else {
-      throw ApiException(0, 'An error occurred');
+      throw ApiException(400, 'An error occurred');
     }
   }
 }
