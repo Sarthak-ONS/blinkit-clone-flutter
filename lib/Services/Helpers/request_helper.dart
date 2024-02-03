@@ -21,7 +21,6 @@ class ApiService {
     for (final entry in data.entries) {
       formData.fields.add(MapEntry(entry.key, entry.value.toString()));
     }
-
     try {
       final options = await _getRequestOptions();
       final response = await _dio.post(
