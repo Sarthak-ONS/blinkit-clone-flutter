@@ -11,11 +11,11 @@ import 'package:ecom/Screens/profile_screen.dart';
 import 'package:ecom/Screens/user_address_screen.dart';
 import 'package:ecom/Screens/user_cart_screen.dart';
 import 'package:ecom/Screens/user_orders_screen.dart';
+import 'package:ecom/Screens/coupons_screeen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
-    print(settings.arguments);
     switch (settings.name) {
       case '/':
         return ScalePageRoute(
@@ -33,11 +33,15 @@ class AppRouter {
           builder: (_) => const HomeScreen(),
         );
       case '/products':
-        print(settings.arguments);
         return ScalePageRoute(
           builder: (_) => ProductsScreen(
             categoryName: settings.arguments.toString(),
           ),
+          animationDirection: AnimationDirection.rightToLeft,
+        );
+      case '/coupons':
+        return ScalePageRoute(
+          builder: (_) => const CouponsSelectionScreen(),
           animationDirection: AnimationDirection.rightToLeft,
         );
       case "/cart":

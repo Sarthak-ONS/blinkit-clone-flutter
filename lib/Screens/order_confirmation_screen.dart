@@ -44,13 +44,10 @@ class _OrderConfirmationScreenState extends State<OrderConfirmationScreen>
               width: 300,
               controller: _controller,
               onLoaded: (composition) {
-                // Configure the AnimationController with the duration of the
-                // Lottie file and start the animation.
                 _controller
                   ..duration = composition.duration
                   ..forward();
                 _controller.repeat();
-                print("Animation Loaded");
               },
               repeat: true,
               frameRate: FrameRate.max,

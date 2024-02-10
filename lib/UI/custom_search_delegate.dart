@@ -1,14 +1,13 @@
+import 'package:ecom/constants.dart';
 import 'package:flutter/material.dart';
 
-class MySearchDelegate extends SearchDelegate {
+class ProductsSearchDelegate extends SearchDelegate {
   @override
   List<Widget> buildActions(BuildContext context) {
     return [
       IconButton(
         icon: const Icon(Icons.clear),
-        onPressed: () {
-          query = '';
-        },
+        onPressed: () => (query == "") ? close(context, null) : query = "",
       ),
     ];
   }
@@ -17,21 +16,46 @@ class MySearchDelegate extends SearchDelegate {
   Widget buildLeading(BuildContext context) {
     return IconButton(
       icon: const Icon(Icons.arrow_back),
-      onPressed: () {
-        Navigator.pop(context);
-      },
+      onPressed: () => close(context, null),
     );
   }
 
   @override
   Widget buildResults(BuildContext context) {
-    // Perform search and display results
-    return Text('Search Results for: $query');
+    // Perform search and display resultsdas
+
+    final filteredProducts = kDummyProducts
+        .where((element) => element.toLowerCase().contains(query.toLowerCase()))
+        .toList();
+
+    return ListView.builder(
+      itemCount: filteredProducts.length,
+      keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(filteredProducts[index]),
+          onTap: () {
+            query = filteredProducts[index];
+            showResults(context);
+          },
+        );
+      },
+    );
   }
 
   @override
   Widget buildSuggestions(BuildContext context) {
-    // Display suggestions as the user types
-    return const Text('Search Suggestions');
+    return ListView.builder(
+      itemCount: kDummyProducts.length,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text(kDummyProducts[index]),
+          onTap: () {
+            query = kDummyProducts[index];
+            showResults(context);
+          },
+        );
+      },
+    );
   }
 }

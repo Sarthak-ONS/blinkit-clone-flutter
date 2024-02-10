@@ -16,20 +16,11 @@ class ViewOrderInvoiceScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: PDF(
+      body: const PDF(
         enableSwipe: true,
         swipeHorizontal: true,
         autoSpacing: false,
         pageFling: false,
-        onError: (error) {
-          print(error.toString());
-        },
-        onPageError: (page, error) {
-          print('$page: ${error.toString()}');
-        },
-        onPageChanged: (int? page, int? total) {
-          print('page change: $page!/$total!');
-        },
       ).fromAsset('Assets/123446789.pdf'),
     );
   }

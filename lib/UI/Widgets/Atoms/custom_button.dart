@@ -8,6 +8,7 @@ Widget customTextButton(
   required Function callback,
   EdgeInsets? padding,
   Color? color,
+  EdgeInsets? margin,
 }) =>
     ElevatedButton(
       onPressed: () => callback(),
@@ -21,9 +22,9 @@ Widget customTextButton(
         ),
         padding: padding,
       ),
-      child: const Text(
-        'Continue',
-        style: TextStyle(
+      child: Text(
+        title ?? 'Continue',
+        style: const TextStyle(
           fontWeight: FontWeight.w600,
         ),
       ),

@@ -26,40 +26,34 @@ Widget buildSubCategory() {
         );
       }
 
-      return GestureDetector(
-        onTap: () {
-          print(subCategory[index]);
-          // Navigate to
-        },
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 10),
-          decoration: BoxDecoration(
-            border: index == 1
-                ? const Border(
-                    right: BorderSide(
-                      color: AppColors.primaryGreenColor,
-                      width: 3,
-                    ),
-                  )
-                : null,
-          ),
-          child: Column(
-            children: [
-              CircleAvatar(
-                radius: 20,
-                backgroundColor: AppColors.greyWhiteColor,
-                child: Image.asset(
-                  "Assets/SubCategories/${index + 1}.png",
-                  height: 45,
-                  fit: BoxFit.fitWidth,
-                ),
+      return Container(
+        margin: const EdgeInsets.symmetric(vertical: 10),
+        decoration: BoxDecoration(
+          border: index == 1
+              ? const Border(
+                  right: BorderSide(
+                    color: AppColors.primaryGreenColor,
+                    width: 3,
+                  ),
+                )
+              : null,
+        ),
+        child: Column(
+          children: [
+            CircleAvatar(
+              radius: 20,
+              backgroundColor: AppColors.greyWhiteColor,
+              child: Image.asset(
+                "Assets/SubCategories/${index + 1}.png",
+                height: 45,
+                fit: BoxFit.fitWidth,
               ),
-              Text(
-                subCategory[index],
-                textAlign: TextAlign.center,
-              )
-            ],
-          ),
+            ),
+            Text(
+              subCategory[index],
+              textAlign: TextAlign.center,
+            )
+          ],
         ),
       );
     },

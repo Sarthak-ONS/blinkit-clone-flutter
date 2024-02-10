@@ -22,9 +22,10 @@ class ProductsScreen extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.search),
-            onPressed: () {
-              showSearch(context: context, delegate: MySearchDelegate());
-            },
+            onPressed: () => showSearch(
+              context: context,
+              delegate: ProductsSearchDelegate(),
+            ),
           ),
           const SizedBox(
             width: 10,

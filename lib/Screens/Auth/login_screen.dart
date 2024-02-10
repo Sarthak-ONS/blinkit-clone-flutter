@@ -46,7 +46,6 @@ class _LoginScreenState extends State<LoginScreen>
                       ..duration = composition.duration
                       ..forward();
                     _controller.repeat();
-                    print("Animation Loaded");
                   },
                   repeat: true,
                   frameRate: FrameRate.max,
@@ -89,9 +88,7 @@ class _LoginScreenState extends State<LoginScreen>
                     context: context,
                     backgroundColor: Colors.transparent,
                     isScrollControlled: true,
-                    builder: (context) {
-                      return LoginwithMobileWidget();
-                    },
+                    builder: (context) => const LoginwithMobileWidget(),
                   );
                 }),
                 const Divider(),

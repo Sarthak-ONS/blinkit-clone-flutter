@@ -1,17 +1,15 @@
 import 'package:dio/dio.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:ecom/constants.dart';
 
 import '../Exceptions/api_exception.dart';
 
+var kdioBaseOptions = BaseOptions(
+  baseUrl: kBackendURL,
+  contentType: Headers.jsonContentType,
+);
+
 class ApiService {
-  final Dio _dio;
-  final FlutterSecureStorage _secureStorage;
-
-  final kBackendURL = "http://10.0.2.2:4000";
-
-  ApiService()
-      : _dio = Dio(),
-        _secureStorage = const FlutterSecureStorage();
+  final Dio _dio = Dio(kdioBaseOptions);
 
   Future postFormData(
     String path,
@@ -24,7 +22,7 @@ class ApiService {
     try {
       final options = await _getRequestOptions();
       final response = await _dio.post(
-        '$kBackendURL$path',
+        path,
         data: formData,
         options: options,
       );
@@ -45,7 +43,6 @@ class ApiService {
       return parsedBody;
     } else {
       final errorMessage = parsedBody['message'] ?? 'An error occurred';
-      print(errorMessage);
       throw ApiException(response.statusCode!, errorMessage);
     }
   }
@@ -53,17 +50,10 @@ class ApiService {
   Future<Options> _getRequestOptions() async {
     final options = Options(contentType: 'application/json');
 
-    // final token = await _secureStorage.read(key: 'authToken');
-    // if (token != null) {
-    //   options.headers!['Authorization'] = 'Bearer $token';
-    // }
-
     return options;
   }
 
   void _handleException(DioException e) {
-    print((e.response?.data));
-
     if (e.response?.statusCode == 500) {
       throw ApiException(
         500,
