@@ -15,6 +15,7 @@ Widget customTextField({
   String? Function(String?)? onFieldSubmitted,
   Widget? suffixIcon,
   Color? backgroundColor,
+  bool? isAutoFocus,
 }) =>
     TextFormField(
       onFieldSubmitted: onFieldSubmitted,
@@ -22,7 +23,7 @@ Widget customTextField({
       maxLength: maxLength,
       validator: validator,
       textCapitalization: TextCapitalization.characters,
-      autofocus: true,
+      autofocus: isAutoFocus ?? false,
       cursorColor: Colors.grey,
       keyboardType:
           isPhoneNumberField ? TextInputType.phone : TextInputType.text,

@@ -1,5 +1,6 @@
 import 'package:ecom/Screens/Auth/otp_verification_screen.dart';
 import 'package:ecom/Screens/app_about_screen.dart';
+import 'package:ecom/Screens/cart_gift_screen.dart';
 import 'package:ecom/Screens/error_screen.dart';
 import 'package:ecom/Screens/home_screen.dart';
 import 'package:ecom/Screens/Auth/login_screen.dart';
@@ -43,6 +44,11 @@ class AppRouter {
         return ScalePageRoute(
           builder: (_) => const CouponsSelectionScreen(),
           animationDirection: AnimationDirection.rightToLeft,
+        );
+
+      case "/cart/gift":
+        return ScalePageRoute(
+          builder: (_) => const CartGiftScreen(),
         );
       case "/cart":
         return ScalePageRoute(

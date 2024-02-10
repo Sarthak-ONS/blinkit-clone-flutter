@@ -38,7 +38,7 @@ class ProfileScreen extends StatelessWidget {
               ),
             ),
             const Text(
-              '9457000000',
+              '945700789123',
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w300,

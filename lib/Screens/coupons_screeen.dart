@@ -48,7 +48,7 @@ class _CouponsSelectionScreenState extends State<CouponsSelectionScreen> {
                 itemBuilder: (context, index) {
                   var coupon = kDummyCoupons.elementAt(index);
                   return Container(
-                    margin: const EdgeInsets.symmetric(vertical: 5),
+                    margin: const EdgeInsets.symmetric(vertical: 15),
                     padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -58,13 +58,41 @@ class _CouponsSelectionScreenState extends State<CouponsSelectionScreen> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          coupon["headline"],
-                          style: const TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              coupon["headline"],
+                              style: const TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16,
+                              ),
+                            ),
+                            InkWell(
+                              splashColor: AppColors.primaryGreenColor,
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 15, vertical: 2),
+                                decoration: BoxDecoration(
+                                    color: AppColors.primaryGreenColor
+                                        .withOpacity(0.1),
+                                    borderRadius: BorderRadius.circular(10.0),
+                                    border: Border.all(
+                                      width: 1,
+                                      color: AppColors.primaryGreenColor,
+                                    )),
+                                child: const Text(
+                                  "Apply",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    color: AppColors.primaryGreenColor,
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
                         ),
                         Text(
                           "Use Code: ${coupon["couponCode"]}",

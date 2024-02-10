@@ -39,6 +39,8 @@ flutter:
     - Assets/Categories/
     - Assets/SubCategories/
     - Assets/Products/
+    - Assets/Images/
+
     - .env
   fonts:
     - family: Catamaran

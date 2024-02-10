@@ -20,6 +20,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(const AssetImage("Assets/Images/gift.jpg"), context);
+
     return MaterialApp(
       title: 'Blinkit',
       debugShowCheckedModeBanner: false,
