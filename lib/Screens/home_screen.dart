@@ -1,4 +1,3 @@
-import 'package:ecom/UI/Widgets/Organisms/home_screen_carousel.dart';
 import 'package:flutter/material.dart';
 
 import '../UI/Widgets/Atoms/home_screen_floating_button.dart';
@@ -7,6 +6,7 @@ import '../UI/Widgets/Organisms/category_with_products.dart';
 import '../UI/Widgets/Organisms/home_screen_app_bar.dart';
 import '../UI/Widgets/Organisms/home_screen_category_builder.dart';
 import '../UI/Widgets/Organisms/home_screen_search_bar.dart';
+import '../UI/Widgets/Organisms/home_screen_carousel.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

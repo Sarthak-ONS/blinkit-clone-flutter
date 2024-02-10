@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../UI/Widgets/Atoms/list_tile.dart';
-
 import 'package:share_plus/share_plus.dart';
 
+import '../UI/Widgets/Atoms/list_tile.dart';
 import '../UI/Widgets/Organisms/cupertino_logout_dialog.dart';
 
 const svgIcons = [

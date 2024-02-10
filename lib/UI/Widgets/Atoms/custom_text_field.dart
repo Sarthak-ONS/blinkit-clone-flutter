@@ -23,7 +23,7 @@ Widget customTextField({
       maxLength: maxLength,
       validator: validator,
       textCapitalization: TextCapitalization.characters,
-      autofocus: isAutoFocus ?? false,
+      autofocus: isAutoFocus ?? true,
       cursorColor: Colors.grey,
       keyboardType:
           isPhoneNumberField ? TextInputType.phone : TextInputType.text,
