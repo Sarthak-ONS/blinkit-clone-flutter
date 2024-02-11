@@ -1,5 +1,7 @@
 const appCurrencySybmbol = "₹";
 
+enum RequestingMethods { get, post, put, delete }
+
 const List<String> kDummyProducts = [
   "Apple",
   "Banana",
@@ -116,4 +118,33 @@ List kDummyCoupons = [
       "Valid till: 31st December 2021",
     ],
   }
+];
+
+const kCategoriesTitles = [
+  "Paan Corner",
+  "Dairy, Bread & Eggs",
+  "Fruits & Vegetables",
+  "Cold Drinks & Juices",
+  "Snacks & Munchies",
+  "Breakfast & Instandt Food",
+  "Sweet Tooth",
+  "Bakery & Biscuits",
+  "Tea & Coffee",
+  "Atta, Rice & Dal",
+  "Masala & Oil",
+  "Sauces & Spreads",
+  "Chicken, Meat & Fish",
+  "Organic & Healthy Living",
+  "Baby Care",
+  "Pharma & Wellness",
+  "Cleaning Essentials",
+  "Home & Office",
+  "Personal Care",
+  "Pet Care"
+];
+
+const kSvgIcons = [
+  "https://img.icons8.com/ios/50/wallet--v1.png",
+  "https://img.icons8.com/ios/50/filled-chat.png",
+  "https://img.icons8.com/dotty/80/token-card-code.png"
 ];

@@ -1,6 +1,6 @@
-import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import 'package:ecom/app_colors.dart';
 import '../Atoms/card_product_order_summary.dart';
 
 class OrderSummaryProductsDetails extends StatelessWidget {

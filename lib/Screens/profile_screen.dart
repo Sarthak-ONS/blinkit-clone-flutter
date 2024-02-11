@@ -2,14 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
 
+import 'package:ecom/constants.dart';
 import '../UI/Widgets/Atoms/list_tile.dart';
 import '../UI/Widgets/Organisms/cupertino_logout_dialog.dart';
-
-const svgIcons = [
-  "https://img.icons8.com/ios/50/wallet--v1.png",
-  "https://img.icons8.com/ios/50/filled-chat.png",
-  "https://img.icons8.com/dotty/80/token-card-code.png"
-];
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
@@ -52,9 +47,10 @@ class ProfileScreen extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  buildIconWithLabel(assetName: svgIcons[0], title: 'Wallet'),
-                  buildIconWithLabel(assetName: svgIcons[1], title: 'Support'),
-                  buildIconWithLabel(assetName: svgIcons[2], title: 'Payments'),
+                  buildIconWithLabel(assetName: kSvgIcons[0], title: 'Wallet'),
+                  buildIconWithLabel(assetName: kSvgIcons[1], title: 'Support'),
+                  buildIconWithLabel(
+                      assetName: kSvgIcons[2], title: 'Payments'),
                 ],
               ),
             ),

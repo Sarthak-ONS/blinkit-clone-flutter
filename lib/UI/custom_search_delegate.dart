@@ -1,5 +1,6 @@
-import 'package:ecom/constants.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ecom/constants.dart';
 
 class ProductsSearchDelegate extends SearchDelegate {
   @override

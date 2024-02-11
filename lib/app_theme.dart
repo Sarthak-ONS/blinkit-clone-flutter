@@ -1,5 +1,6 @@
-import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
+
+import 'package:ecom/app_colors.dart';
 
 class AppTheme {
   static final ThemeData appTHeme = ThemeData(

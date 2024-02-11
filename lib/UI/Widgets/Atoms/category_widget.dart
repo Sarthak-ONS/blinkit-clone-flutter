@@ -1,27 +1,6 @@
 import 'package:flutter/material.dart';
 
-const categoriesTitles = [
-  "Paan Corner",
-  "Dairy, Bread & Eggs",
-  "Fruits & Vegetables",
-  "Cold Drinks & Juices",
-  "Snacks & Munchies",
-  "Breakfast & Instandt Food",
-  "Sweet Tooth",
-  "Bakery & Biscuits",
-  "Tea & Coffee",
-  "Atta, Rice & Dal",
-  "Masala & Oil",
-  "Sauces & Spreads",
-  "Chicken, Meat & Fish",
-  "Organic & Healthy Living",
-  "Baby Care",
-  "Pharma & Wellness",
-  "Cleaning Essentials",
-  "Home & Office",
-  "Personal Care",
-  "Pet Care"
-];
+import 'package:ecom/constants.dart';
 
 class CategoryWidget extends StatelessWidget {
   const CategoryWidget({super.key, required this.index});
@@ -34,7 +13,7 @@ class CategoryWidget extends StatelessWidget {
         Navigator.pushNamed(
           context,
           '/products',
-          arguments: categoriesTitles[index],
+          arguments: kCategoriesTitles[index],
         ),
       },
       child: Column(
@@ -52,7 +31,7 @@ class CategoryWidget extends StatelessWidget {
             ),
           ),
           Text(
-            categoriesTitles[index],
+            kCategoriesTitles[index],
             textAlign: TextAlign.center,
             maxLines: 1,
             style: const TextStyle(

@@ -1,7 +1,7 @@
-import 'package:ecom/UI/Widgets/Atoms/add_to_cart_button.dart';
 import 'package:flutter/material.dart';
 
 import '../Organisms/product_description_modal_opener.dart';
+import '../Atoms/add_to_cart_button.dart';
 
 class ProductCardForList extends StatelessWidget {
   const ProductCardForList({super.key, required this.index});

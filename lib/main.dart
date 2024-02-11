@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ecom/app_theme.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'package:ecom/route_generator.dart';
+import 'package:ecom/app_theme.dart';
 
 void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
-      statusBarColor: Colors.white, statusBarIconBrightness: Brightness.dark,
-      // Set the status bar color here
+      statusBarColor: Colors.white,
+      statusBarIconBrightness: Brightness.dark,
     ),
   );
   await DotEnv().load();

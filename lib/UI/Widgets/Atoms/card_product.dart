@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../Organisms/product_description_modal_opener.dart';
 import 'add_to_cart_button.dart';
+import '../Organisms/product_description_modal_opener.dart';
 
 const productDetails =
     '''Amul Taaza Toned Milk (Polypack) is pasteurized with a great nutritional value. It can be consumed directly or can be used for preparing tea, coffee, sweets, khoya, curd, buttermilk, ghee etc.''';

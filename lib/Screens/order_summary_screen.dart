@@ -1,6 +1,6 @@
-import 'package:ecom/app_colors.dart';
 import 'package:flutter/material.dart';
 
+import 'package:ecom/app_colors.dart';
 import '../UI/Widgets/Atoms/card_order_details.dart';
 import '../UI/Widgets/Atoms/repeat_order_cta.dart';
 import '../UI/Widgets/Organisms/card_cart_prices_detail.dart';
