@@ -46,4 +46,4 @@ Youtube Video Explanation
 
 ## Contributing
 
-Contributions are always welcome! Thanks for Contributing to the project!
+Contributions are always welcome! Thanks for Contributing to the project
